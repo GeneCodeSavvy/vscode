@@ -384,6 +384,10 @@ export class SuggestAddon extends Disposable implements ITerminalAddon, ISuggest
 
 	setContainerWithOverflow(container: HTMLElement): void {
 		this._container = container;
+		// Update the details overlay container if widget exists
+		if (this._suggestWidget) {
+			this._suggestWidget.updateDetailsContainer(container);
+		}
 	}
 
 	setScreen(screen: HTMLElement): void {

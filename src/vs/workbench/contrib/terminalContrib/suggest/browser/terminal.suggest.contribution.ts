@@ -219,6 +219,9 @@ class TerminalSuggestContribution extends DisposableStore implements ITerminalCo
 			return;
 		}
 
+		// Hide suggestions during container update to avoid visual glitches
+		addon.hideSuggestWidget(false);
+
 		// Update the container based on the new target location
 		if (target === TerminalLocation.Editor) {
 			addon.setContainerWithOverflow(xtermElement);

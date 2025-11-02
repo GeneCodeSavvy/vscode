@@ -421,6 +421,10 @@ export class SimpleSuggestWidget<TModel extends SimpleCompletionModel<TItem>, TI
 		this._persistedSize.reset();
 	}
 
+	updateDetailsContainer(container: HTMLElement): void {
+		this._details.updateContainer(container);
+	}
+
 	showTriggered(explicitlyInvoked: boolean, cursorPosition: { top: number; left: number; height: number }) {
 		if (this._state !== State.Hidden) {
 			return;

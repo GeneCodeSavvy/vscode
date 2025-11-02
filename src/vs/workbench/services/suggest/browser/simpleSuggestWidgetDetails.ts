@@ -379,6 +379,20 @@ export class SimpleSuggestDetailsOverlay {
 		this._placeAtAnchor(this._anchorBox, this._userSize ?? this.widget.size);
 	}
 
+	updateContainer(container: HTMLElement): void {
+		// Hide details if currently shown to avoid issues during transition
+		const wasAdded = this._added;
+		if (wasAdded) {
+			this.hide();
+		}
+		// Update container reference
+		this._container = container;
+		// Re-show if it was visible
+		if (wasAdded) {
+			this.show();
+		}
+	}
+
 	_placeAtAnchor(anchorBox: dom.IDomNodePagePosition, size: dom.Dimension) {
 		const bodyBox = dom.getClientArea(this.getDomNode().ownerDocument.body);
 
